@@ -14,7 +14,6 @@ typedef struct{
 }Hashtable;
 
 bool insertToHashTable(Hashtable*, int);
-bool insertToHashTable_2(Hashtable*, int);
 int findInHashTable(Hashtable, int);
 bool deleteFromHashTable(Hashtable*, int);
 Hashtable createHashtable(int);

@@ -35,25 +35,6 @@ bool insertToHashTable(Hashtable *t, int value)
     return false;
 }
 
-bool insertToHashTable_2(Hashtable* t, int value)
-{
-    if (findInHashTable((*t), value)>=0)
-        return false;
-    int i=1, j;
-    do {
-        j=(value+i)%(*t).capacity;
-        if ((*t).elements[j]==-1)
-        {
-            (*t).elements[j]=value;
-            return true;
-        }
-        i++;
-    } while (i!=(*t).capacity);
-
-    printf("Tulcsordulas!\n");
-    return false;
-}
-
 int findInHashTable(Hashtable t, int key)
 {
     int j, i=0;
