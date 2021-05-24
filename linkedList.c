@@ -3,7 +3,7 @@
 //
 #include "linkedList.h"
 
-void printList(Node* first)
+void print_LinkedList(Node* first)
 {
     Node* c=first;
     while (c!=NULL)
@@ -13,7 +13,7 @@ void printList(Node* first)
     }
 }
 
-Node* Create(int n)
+Node* Create_LinkedList(int n)
 {
     Node* p;
     p=(Node*)malloc(sizeof(Node));
@@ -21,13 +21,13 @@ Node* Create(int n)
     p->info=n;
     return p;
 }
-bool isEmpty(Node* first)
+bool isEmpty_LinkedList(Node* first)
 {
     if (first==NULL)
         return true;
     return false;
 }
-void addLast(Node* first, int n)
+void addLast_LinkedList(Node* first, int n)
 {
     Node* current=first;
     while (current->next!=NULL)
@@ -42,7 +42,7 @@ void addLast(Node* first, int n)
     }
 }
 
-void addFirst(Node** first, int n)
+void addFirst_LinkedList(Node** first, int n)
 {
     Node* new;
     new=Create(n);
@@ -53,7 +53,7 @@ void addFirst(Node** first, int n)
     (*first)=new;
 }
 
-int removeFirst(Node** first)
+int removeFirst_LinkedList(Node** first)
 {
     int retval = -1;
     Node * next_node = NULL;
@@ -70,14 +70,14 @@ int removeFirst(Node** first)
     return retval;
 }
 
-int removeIndex(Node** first, int n)
+int removeIndex_LinkedList(Node** first, int n)
 {
     int i = 0, retval=-1;
     Node* current = *first;
     Node* temp_node = NULL;
 
     if (n == 0) {
-        return removeFirst(first);
+        return removeFirst_LinkedList(first);
     }
 
     for (i = 0; i < n-1; i++) {
@@ -95,7 +95,7 @@ int removeIndex(Node** first, int n)
     return retval;
 }
 
-int removeLast(Node* head)
+int removeLast_LinkedList(Node* head)
 {
     int retval = 0;
 

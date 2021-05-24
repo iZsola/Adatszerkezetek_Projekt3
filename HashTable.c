@@ -4,7 +4,7 @@
 
 #include "HashTable.h"
 
-Hashtable createHashtable(int c)
+Hashtable create_Hashtable(int c)
 {
     Hashtable t;
     t.capacity=c;
@@ -16,9 +16,9 @@ Hashtable createHashtable(int c)
     return t;
 }
 
-bool insertToHashTable(Hashtable *t, int value)
+bool insert_HashTable(Hashtable *t, int value)
 {
-    if (findInHashTable((*t), value)>=0)
+    if (find_HashTable((*t), value)>=0)
         return false;
     int i=0, j;
     do {
@@ -35,7 +35,7 @@ bool insertToHashTable(Hashtable *t, int value)
     return false;
 }
 
-int findInHashTable(Hashtable t, int key)
+int find_HashTable(Hashtable t, int key)
 {
     int j, i=0;
     do {
@@ -48,7 +48,7 @@ int findInHashTable(Hashtable t, int key)
     return -1;
 }
 
-bool deleteFromHashTable(Hashtable *t, int value)
+bool delete_HashTable(Hashtable *t, int value)
 {
     int j, i=0;
 
@@ -66,7 +66,7 @@ bool deleteFromHashTable(Hashtable *t, int value)
     return false;
 }
 
-void printHashTable(Hashtable t)
+void print_HashTable(Hashtable t)
 {
     for (int i=0;i<t.capacity;i++)
         if (t.elements[i]!=-1)
@@ -74,7 +74,7 @@ void printHashTable(Hashtable t)
     printf("\n");
 }
 
-void freeHashTable(Hashtable* t)
+void free_HashTable(Hashtable* t)
 {
     free((*t).elements);
 }

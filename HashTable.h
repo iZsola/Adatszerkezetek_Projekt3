@@ -13,11 +13,11 @@ typedef struct{
     int capacity;
 }Hashtable;
 
-bool insertToHashTable(Hashtable*, int);
-int findInHashTable(Hashtable, int);
-bool deleteFromHashTable(Hashtable*, int);
-Hashtable createHashtable(int);
-void printHashTable(Hashtable);
-void freeHashTable(Hashtable*);
+bool insert_HashTable(Hashtable*, int);
+int find_HashTable(Hashtable, int);
+bool delete_HashTable(Hashtable*, int);
+Hashtable create_Hashtable(int);
+void print_HashTable(Hashtable);
+void free_HashTable(Hashtable*);
 
 #endif //ADATSZERKEZETEK_PROJEKT3_HASHTABLE_H

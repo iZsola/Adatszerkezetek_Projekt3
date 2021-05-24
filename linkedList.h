@@ -12,13 +12,13 @@ typedef struct Node{
     struct Node* next;
 }Node;
 
-void printList(Node*);
-Node* Create(int);
-bool isEmpty(Node*);
-void addLast(Node*, int);
-void addFirst(Node**, int);
-int removeFirst(Node**);
-int removeLast(Node*);
-int removeIndex(Node**, int);
+void print_LinkedList(Node*);
+Node* Create_LinkedList(int);
+bool isEmpty_LinkedList(Node*);
+void addLast_LinkedList(Node*, int);
+void addFirst_LinkedList(Node**, int);
+int removeFirst_LinkedList(Node**);
+int removeLast_LinkedList(Node*);
+int removeIndex_LinkedList(Node**, int);
 
 #endif //ADATSZERKEZETEK_PROJEKT333_LINKEDLIST_H

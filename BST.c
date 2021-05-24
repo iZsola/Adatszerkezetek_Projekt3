@@ -6,7 +6,7 @@
 
 
 ///Create BST
-node* create(Ship x)
+node* create_BST(Ship x)
 {
     node* t;
     t=(node*)malloc(sizeof(node));
@@ -17,33 +17,33 @@ node* create(Ship x)
 }
 
 ///Search in BST
-node* search(node *root, Ship x)
+node* search_BST(node *root, Ship x)
 {
     if(root==NULL || root->ship.value==x.value) //if root->data is x then the element is found
         return root;
     else if(x.value>root->ship.value) // x is greater, so we will search the right subtree
-        return search(root->right, x);
+        return search_BST(root->right, x);
     else //x is smaller than the data, so we will search the left subtree
-        return search(root->left,x);
+        return search_BST(root->left,x);
 }
 
 ///Insert into BST
-node* insert(node *root, Ship x)
+node* insert_BST(node *root, Ship x)
 {
     //searching for the place to insert
     if(root==NULL)
-        return create(x);
+        return create_BST(x);
     if (root->ship.value==x.value)
         return root;
     else if(x.value>root->ship.value) // x is greater. Should be inserted to right
-        root->right = insert(root->right, x);
+        root->right = insert_BST(root->right, x);
     else // x is smaller should be inserted to left
-        root->left = insert(root->left,x);
+        root->left = insert_BST(root->left,x);
     return root;
 }
 
 ///Function to delete a node
-node* delete(node *root, Ship x)
+node* delete_BST(node *root, Ship x)
 {
     //searching for the item to be deleted
     if(root==NULL)
@@ -51,7 +51,7 @@ node* delete(node *root, Ship x)
     if (x.value>root->ship.value)
         root->right = delete(root->right, x);
     else if(x.value<root->ship.value)
-        root->left = delete(root->left, x);
+        root->left = delete_BST(root->left, x);
     else
     {
         //No Children
@@ -76,42 +76,42 @@ node* delete(node *root, Ship x)
             //Two Children
         else
         {
-            node *temp = find_minimum(root->right);
+            node *temp = find_minimum_BST(root->right);
             root->ship= temp->ship;
-            root->right = delete(root->right, temp->ship);
+            root->right = delete_BST(root->right, temp->ship);
         }
     }
     return root;
 }
 
-node* find_minimum(node *root)
+node* find_minimum_BST(node *root)
 {
     if(root == NULL)
         return NULL;
     else if(root->left != NULL) // node with minimum value will have no left child
-        return find_minimum(root->left); // left most element will be minimum
+        return find_minimum_BST(root->left); // left most element will be minimum
     return root;
 }
 
-node* find_maximum(node *root)
+node* find_maximum_BST(node *root)
 {
     if(root == NULL)
         return NULL;
     else if(root->right != NULL) // node with minimum value will have no right child
-        return find_maximum(root->right); // left most element will be minimum
+        return find_maximum_BST(root->right); // left most element will be minimum
     return root;
 }
 
-void inorder(node *root) {
+void inorder_BST(node *root) {
     if (root != NULL) // checking if the root is not null
     {
         inorder(root->left); // visiting left child
         printf("ID=%d, t=%.2lf\n", root->ship.id, root->ship.value); // printing data at root
-        inorder(root->right);// visiting right child
+        inorder_BST(root->right);// visiting right child
     }
 }
 
-Ship findFloor(node *root, Ship info) {
+Ship findFloor_BST(node *root, Ship info) {
     node *curr = root, *ans = NULL;
     while (curr) {
         if (curr->ship.value<= info.value) {
@@ -129,7 +129,7 @@ Ship findFloor(node *root, Ship info) {
 }
 
 ///Finds ship which arrives right after given ship
-Ship findSuc(node *root, Ship info) {
+Ship findSuc_BST(node *root, Ship info) {
     node *curr = root, *ans = NULL;
     while (curr) {
         if (curr->ship.value> info.value) {
@@ -147,7 +147,7 @@ Ship findSuc(node *root, Ship info) {
 }
 
 
-bool iterativeSearch(node* root, Ship info)
+bool iterativeSearch_BST(node* root, Ship info)
 {
     // Traverse untill root reaches to dead end
     while (root != NULL) {

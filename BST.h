@@ -18,14 +18,14 @@ typedef struct{
     struct node *left, *right;
 }node;
 
-node* create(Ship);
-node* insert(node*, Ship);
-node* search(node*, Ship);
-node* delete(node*, Ship);
-node* find_minimum(node*);
-node* find_maximum(node*);
-Ship findFloor(node*, Ship);
-Ship findSuc(node*, Ship);
-void inorder(node*);
-bool iterativeSearch(node*, Ship);
+node* create_BST(Ship);
+node* insert_BST(node*, Ship);
+node* search_BST(node*, Ship);
+node* delete_BST(node*, Ship);
+node* find_minimum_BST(node*);
+node* find_maximum_BST(node*);
+Ship findFloor_BST(node*, Ship);
+Ship findSuc_BST(node*, Ship);
+void inorder_BST(node*);
+bool iterativeSearch_BST(node*, Ship);
 #endif //ADATSZERKEZETEK_PROJEKT_3_BST_H
