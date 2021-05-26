@@ -1,7 +1,8 @@
 //
 // Created by Bibi on 5/24/2021.
 //
-
+#ifndef ADATSZERKEZETEK_PROJEKT333_LINKEDLIST_H
+#define ADATSZERKEZETEK_PROJEKT333_LINKEDLIST_H
 #include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>

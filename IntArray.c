@@ -52,7 +52,7 @@ void printArrayToFile_IntArray(const char* fileName, intArray array)
 
 void sort_IntArray(intArray* array)
 {
-    qsort((*array).elements, (*array).size, sizeof(int), cmpfunc);
+    qsort((*array).elements, (*array).size, sizeof(int), cmpfunc_IntArray);
 }
 
 int cmpfunc_IntArray (const void * a, const void * b) {
@@ -101,7 +101,7 @@ int linearSearch_IntArray(intArray array, int element)
 
 int binarySearchUtil_IntArray(intArray array, int element)
 {
-    return binarySearch(array, 0, array.size-1, element);
+    return binarySearch_IntArray(array, 0, array.size-1, element);
 }
 
 int binarySearch_IntArray(intArray a, int l, int r, int x)

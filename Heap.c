@@ -25,7 +25,7 @@ void insert_Heap(MAXHEAP* maxHeap, int value)
     (*maxHeap).nrOfElements++;
     (*maxHeap).elements=(int*)realloc((*maxHeap).elements, (*maxHeap).nrOfElements*sizeof(int));
     (*maxHeap).elements[(*maxHeap).nrOfElements-1]=value;
-    lift(maxHeap, (*maxHeap).nrOfElements-1);
+    lift_Heap(maxHeap, (*maxHeap).nrOfElements-1);
 }
 
 void printArray_Heap(MAXHEAP maxHeap)
@@ -38,11 +38,11 @@ void printArray_Heap(MAXHEAP maxHeap)
 int deleteRoot_Heap(MAXHEAP* maxHeap)
 {
     int x=(*maxHeap).elements[0];
-    swap(&(*maxHeap).elements[0], &(*maxHeap).elements[(*maxHeap).nrOfElements-1]);
+    swap_Heap(&(*maxHeap).elements[0], &(*maxHeap).elements[(*maxHeap).nrOfElements-1]);
 
     (*maxHeap).nrOfElements--;
     (*maxHeap).elements= realloc((*maxHeap).elements, (*maxHeap).nrOfElements);
-    sink(&(*maxHeap), 0);
+    sink_Heap(&(*maxHeap), 0);
     return x;
 }
 
@@ -50,7 +50,7 @@ void lift_Heap(MAXHEAP* maxheap, int index)
 {
     while (index>=0 && (*maxheap).elements[index/2]< (*maxheap).elements[index])
     {
-        swap(&(*maxheap).elements[index/2], &(*maxheap).elements[index]);
+        swap_Heap(&(*maxheap).elements[index/2], &(*maxheap).elements[index]);
         index=index/2;
     }
 }
@@ -64,7 +64,7 @@ void sink_Heap(MAXHEAP* maxheap, int index)
             j++;
         if ((*maxheap).elements[j]<=(*maxheap).elements[index])
             break;
-        swap(&(*maxheap).elements[index], &(*maxheap).elements[j]);
+        swap_Heap(&(*maxheap).elements[index], &(*maxheap).elements[j]);
         index=j;
     }
 }
@@ -86,9 +86,9 @@ void modifyValue_Heap(MAXHEAP* maxHeap, int from, int to)
     {
         (*maxHeap).elements[index]=to;
         if (from < to)
-            lift(&(*maxHeap), index);
+            lift_Heap(&(*maxHeap), index);
         else
-            sink(&(*maxHeap), index);
+            sink_Heap(&(*maxHeap), index);
     }
     else
         printf("No such value found!\n");
@@ -96,11 +96,11 @@ void modifyValue_Heap(MAXHEAP* maxHeap, int from, int to)
 
 MAXHEAP concatenate_Heap(MAXHEAP h1, MAXHEAP h2)
 {
-    MAXHEAP res=CreateMaxHeap();
+    MAXHEAP res=CreateMax_Heap();
     for (int i=0;i<h1.nrOfElements;i++)
-        insertToHeap(&res, h1.elements[i]);
+        insert_Heap(&res, h1.elements[i]);
 
     for (int i=0;i<h2.nrOfElements;i++)
-        insertToHeap(&res, h2.elements[i]);
+        insert_Heap(&res, h2.elements[i]);
     return res;
 }

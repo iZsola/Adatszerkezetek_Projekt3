@@ -38,14 +38,14 @@ void addLast_LinkedList(Node* first, int n)
         current->info=n;
     else
     {
-        current->next= Create(n);
+        current->next= Create_LinkedList(n);
     }
 }
 
 void addFirst_LinkedList(Node** first, int n)
 {
     Node* new;
-    new=Create(n);
+    new=Create_LinkedList(n);
     if ((*first)->info==INT_MIN)
         new->next=NULL;
     else

@@ -2,8 +2,8 @@
 // Created by Bibi on 5/26/2021.
 //
 
-#ifndef ADATSZERKEZETEK_PROJEKTHEAP_HEAP_H
-#define ADATSZERKEZETEK_PROJEKTHEAP_HEAP_H
+#ifndef ADATSZERKEZETEK_PROJEKT3_HEAP_H
+#define ADATSZERKEZETEK_PROJEKT3_HEAP_H
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -22,4 +22,4 @@ void sink_Heap(MAXHEAP*, int);
 int getMaxValue_Heap(MAXHEAP);
 void modifyValue_Heap(MAXHEAP*, int, int);
 MAXHEAP concatenate_Heap(MAXHEAP, MAXHEAP);
-#endif //ADATSZERKEZETEK_PROJEKTHEAP_HEAP_H
+#endif //ADATSZERKEZETEK_PROJEKT3_HEAP_H

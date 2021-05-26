@@ -4,6 +4,9 @@
 
 #ifndef ADATSZERKEZETEK_PROJEKTHEAP_INTARRAY_H
 #define ADATSZERKEZETEK_PROJEKTHEAP_INTARRAY_H
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 typedef struct{
     int* elements;
     int size;

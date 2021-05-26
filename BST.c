@@ -49,7 +49,7 @@ node* delete_BST(node *root, Ship x)
     if(root==NULL)
         return NULL;
     if (x.value>root->ship.value)
-        root->right = delete(root->right, x);
+        root->right = delete_BST(root->right, x);
     else if(x.value<root->ship.value)
         root->left = delete_BST(root->left, x);
     else
@@ -105,7 +105,7 @@ node* find_maximum_BST(node *root)
 void inorder_BST(node *root) {
     if (root != NULL) // checking if the root is not null
     {
-        inorder(root->left); // visiting left child
+        inorder_BST(root->left); // visiting left child
         printf("ID=%d, t=%.2lf\n", root->ship.id, root->ship.value); // printing data at root
         inorder_BST(root->right);// visiting right child
     }
